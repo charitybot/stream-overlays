@@ -6,7 +6,13 @@
   "author": "Simon AM <simon@agius-muscat.net>",
   "license": "GPL3",
   "devDependencies": {
+    "@types/react": "^16.7.11",
+    "@types/react-dom": "^16.0.11",
     "fuse-box": "^3.6.0",
     "typescript": "^3.2.1"
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
   }
 }
