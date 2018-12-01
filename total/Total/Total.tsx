@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
-import DonationStore from '../../../common/stores/DonationStore';
+import DonationStore from '../../common/stores/DonationStore';
 
 const REQUEST_DELAY: number = 2000;
 
@@ -27,7 +27,7 @@ export default class Total extends React.Component<ITotalProps> {
   }
 
   public render() {
-    return <span>{this.donationStore.getTotal()}</span>;
+    return <span id="total-amount">{this.donationStore.getTotal()}</span>;
   }
 
   private updateEventTotal(): Promise<number> {
