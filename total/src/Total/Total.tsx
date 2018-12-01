@@ -27,7 +27,7 @@ export default class Total extends React.Component<ITotalProps> {
   }
 
   public render() {
-    return <p>Event Total is: {this.donationStore.getTotal()}</p>;
+    return <span>{this.donationStore.getTotal()}</span>;
   }
 
   private updateEventTotal(): Promise<number> {
