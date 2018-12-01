@@ -5,7 +5,7 @@ const fuse = FuseBox.init({
   output: 'dist/$name.js',
   tsConfig: 'tsconfig.json',
   sourceMaps: true,
-  plugins: [WebIndexPlugin({ template: './total/src/index.html' })]
+  plugins: [WebIndexPlugin({ template: './common/index.html' })]
 });
 fuse.dev(); // launch http server
 fuse
