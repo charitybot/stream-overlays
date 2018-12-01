@@ -3,6 +3,7 @@ const fuse = FuseBox.init({
   homeDir: 'src',
   target: 'browser@es6',
   output: 'dist/$name.js',
+  tsConfig: '../tsconfig.json',
   plugins: [WebIndexPlugin({ template: './src/index.html' })]
 });
 fuse.dev(); // launch http server
