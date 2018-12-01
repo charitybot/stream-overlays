@@ -8,7 +8,7 @@ const fuse = FuseBox.init({
   target: 'browser@es5',
   output: 'dist/$name.js',
   tsConfig: 'tsconfig.json',
-  sourceMaps: true,
+  sourceMaps: !isProduction,
   plugins: [
     WebIndexPlugin({ template: './common/index.html' }),
     [SassPlugin(), CSSPlugin()],
