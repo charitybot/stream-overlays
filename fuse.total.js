@@ -4,12 +4,13 @@ const fuse = FuseBox.init({
   target: 'browser@es6',
   output: 'dist/$name.js',
   tsConfig: 'tsconfig.json',
+  sourceMaps: true,
   plugins: [WebIndexPlugin({ template: './total/src/index.html' })]
 });
 fuse.dev(); // launch http server
 fuse
   .bundle('app')
   .instructions(' > ./total/src/index.tsx')
-  .hmr()
+  .hmr({ reload: true })
   .watch();
 fuse.run();

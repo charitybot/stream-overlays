@@ -8,7 +8,7 @@ import RootStore from '../../common/stores/RootStore';
 
 ReactDOM.render(
   <Provider rootStore={new RootStore()}>
-    <Total />
+    <Total eventIdentifier="fdevchristmas18" />
   </Provider>,
   document.querySelector('#overlay')
 );
