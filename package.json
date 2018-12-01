@@ -20,6 +20,7 @@
     "react-dom": "^16.6.3"
   },
   "scripts": {
-    "start-total": "node fuse.total.js"
+    "start-total": "node fuse.total.js",
+    "build-total": "$env:NODE_ENV=\"production\"; node fuse.total.js"
   }
 }
