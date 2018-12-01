@@ -1,0 +1,12 @@
+{
+  "name": "stream-overlays",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/charitybot/stream-overlays.git",
+  "author": "Simon AM <simon@agius-muscat.net>",
+  "license": "GPL3",
+  "devDependencies": {
+    "fuse-box": "^3.6.0",
+    "typescript": "^3.2.1"
+  }
+}
