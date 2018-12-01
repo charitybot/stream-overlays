@@ -42,7 +42,7 @@ export default class Total extends React.Component<ITotalProps> {
     // TODO: Add currency prefix?
     return (
       <span id="total-amount">
-        <CountUp start={oldTotal} end={newTotal} decimals={2} prefix="" />
+        <CountUp start={oldTotal} end={newTotal} decimals={2} prefix="" separator="," />
       </span>
     );
   }
