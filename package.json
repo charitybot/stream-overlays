@@ -6,6 +6,7 @@
   "author": "Simon AM <simon@agius-muscat.net>",
   "license": "GPL3",
   "devDependencies": {
+    "@types/node": "^10.12.11",
     "@types/react": "^16.7.11",
     "@types/react-dom": "^16.0.11",
     "fuse-box": "^3.6.0",
@@ -20,7 +21,7 @@
     "react-dom": "^16.6.3"
   },
   "scripts": {
-    "start-total": "node fuse.total.js",
-    "build-total": "$env:NODE_ENV=\"production\"; node fuse.total.js"
+    "start-total": "$env:NODE_ENV='development'; node fuse.total.js",
+    "build-total": "$env:NODE_ENV='production'; node fuse.total.js"
   }
 }

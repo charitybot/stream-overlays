@@ -24,6 +24,7 @@ export default class Total extends React.Component<ITotalProps> {
   }
 
   public componentDidMount() {
+    console.log(`Mounting Total Overlay for Event with Identifier: ${this.props.eventIdentifier}`);
     this.updateEventTotal();
     this.totalRequestLoop = setInterval(() => {
       this.updateEventTotal();
@@ -47,8 +48,8 @@ export default class Total extends React.Component<ITotalProps> {
     );
   }
 
-  private updateEventTotal(): Promise<number> {
-    return this.donationStore.fetchEventTotal(this.props.eventIdentifier);
+  private updateEventTotal(): Promise<number | void> {
+    return this.donationStore.fetchEventTotal(this.props.eventIdentifier).catch(error => console.error(error));
   }
 
   public componentWillUnmount() {

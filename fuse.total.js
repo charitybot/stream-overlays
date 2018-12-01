@@ -5,14 +5,24 @@ console.log(`Production: ${isProduction}`);
 
 const fuse = FuseBox.init({
   homeDir: './',
-  target: 'browser@es5',
+  target: 'browser',
   output: 'dist/$name.js',
   tsConfig: 'tsconfig.json',
-  sourceMaps: !isProduction,
+  sourceMaps: true,
   plugins: [
     WebIndexPlugin({ template: './common/index.html' }),
-    [SassPlugin(), CSSPlugin()],
-    isProduction && QuantumPlugin({ css: true })
+    [SassPlugin(), CSSPlugin()]
+    // isProduction &&
+    // QuantumPlugin({
+    // sourceMaps: {
+    //   path: '/'
+    // },
+    // bakeApiIntoBundle: true
+    // containedAPI: true,
+    // removeExportsInterop: false,
+    // uglify: false,
+    // treeshake: true
+    // })
   ]
 });
 
@@ -20,14 +30,12 @@ if (!isProduction) {
   fuse.dev(); // launch http server
 }
 
-fuse
-  .bundle('app')
-  .instructions(' > ./total/index.tsx')
-  .hmr({ reload: true })
-  .watch();
+const app = fuse.bundle('app');
 
 if (!isProduction) {
-  // fuse.watch();
+  app.hmr({ reload: true }).watch();
 }
+
+app.instructions(' > ./total/index.tsx');
 
 fuse.run();
