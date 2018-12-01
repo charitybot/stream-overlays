@@ -20,10 +20,14 @@ if (!isProduction) {
   fuse.dev(); // launch http server
 }
 
-fuse.bundle('app').instructions(' > ./total/index.tsx');
+fuse
+  .bundle('app')
+  .instructions(' > ./total/index.tsx')
+  .hmr({ reload: true })
+  .watch();
 
 if (!isProduction) {
-  fuse.hmr({ reload: true }).watch();
+  // fuse.watch();
 }
 
 fuse.run();
