@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
+
+import * as CountUp from 'react-countup';
+
 import DonationStore from '../../common/stores/DonationStore';
 
 const REQUEST_DELAY: number = 2000;
@@ -13,6 +16,7 @@ interface ITotalProps {
 export default class Total extends React.Component<ITotalProps> {
   private donationStore: DonationStore;
   private totalRequestLoop: number | null;
+  private oldTotal: number = 0;
 
   constructor(props: any) {
     super(props);
@@ -27,7 +31,20 @@ export default class Total extends React.Component<ITotalProps> {
   }
 
   public render() {
-    return <span id="total-amount">{this.donationStore.getTotal()}</span>;
+    const oldTotal: number = this.oldTotal;
+    let newTotal: number = this.donationStore.getTotal();
+    // Make sure it never counts down
+    if (newTotal >= oldTotal) {
+      this.oldTotal = newTotal;
+    } else {
+      newTotal = oldTotal;
+    }
+    // TODO: Add currency prefix?
+    return (
+      <span id="total-amount">
+        <CountUp start={oldTotal} end={newTotal} decimals={2} prefix="" />
+      </span>
+    );
   }
 
   private updateEventTotal(): Promise<number> {

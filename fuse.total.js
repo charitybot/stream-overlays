@@ -1,7 +1,7 @@
 const { FuseBox, WebIndexPlugin, CSSPlugin, SassPlugin } = require('fuse-box');
 const fuse = FuseBox.init({
   homeDir: './',
-  target: 'browser@es6',
+  target: 'browser@es5',
   output: 'dist/$name.js',
   tsConfig: 'tsconfig.json',
   sourceMaps: true,

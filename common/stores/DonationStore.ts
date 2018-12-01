@@ -14,7 +14,8 @@ export default class DonationStore extends Store {
   }
 
   public getTotal(): number {
-    return toJS(this.total)['total']; // Because for some reason, I cannot access total directly once it is updated
+    const total: number | undefined = toJS(this.total)['total'];
+    return total ? total : 0; // Because for some reason, I cannot access total directly once it is updated
   }
 
   public async fetchEventTotal(eventIdentifier: string): Promise<number> {
