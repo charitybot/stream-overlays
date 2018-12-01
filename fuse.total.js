@@ -10,7 +10,7 @@ const fuse = FuseBox.init({
 fuse.dev(); // launch http server
 fuse
   .bundle('app')
-  .instructions(' > ./total/src/index.tsx')
+  .instructions(' > ./total/index.tsx')
   .hmr({ reload: true })
   .watch();
 fuse.run();
