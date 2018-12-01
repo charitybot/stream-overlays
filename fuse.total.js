@@ -1,15 +1,15 @@
 const { FuseBox, WebIndexPlugin } = require('fuse-box');
 const fuse = FuseBox.init({
-  homeDir: 'src',
+  homeDir: './',
   target: 'browser@es6',
   output: 'dist/$name.js',
-  tsConfig: '../tsconfig.json',
-  plugins: [WebIndexPlugin({ template: './src/index.html' })]
+  tsConfig: 'tsconfig.json',
+  plugins: [WebIndexPlugin({ template: './total/src/index.html' })]
 });
 fuse.dev(); // launch http server
 fuse
   .bundle('app')
-  .instructions(' > index.tsx')
+  .instructions(' > ./total/src/index.tsx')
   .hmr()
   .watch();
 fuse.run();
