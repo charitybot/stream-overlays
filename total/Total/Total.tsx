@@ -15,7 +15,7 @@ interface ITotalProps {
 @observer
 export default class Total extends React.Component<ITotalProps> {
   private donationStore: DonationStore;
-  private totalRequestLoop: number | null;
+  private totalRequestLoop: NodeJS.Timer | null;
   private oldTotal: number = 0;
 
   constructor(props: any) {
