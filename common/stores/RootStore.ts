@@ -4,10 +4,10 @@ import EventService from '../services/EventService';
 
 export default class RootStore {
   public donationStore: DonationStore;
+  public eventService: EventService;
 
-  public eventService: EventService = new EventService();
-
-  constructor() {
+  constructor(debug?: boolean) {
     this.donationStore = new DonationStore(this);
+    this.eventService = new EventService(debug);
   }
 }
