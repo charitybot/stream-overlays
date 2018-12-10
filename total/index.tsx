@@ -6,9 +6,11 @@ import './styles/style.sass';
 
 import Main from './Total/Main';
 
+console.log('CharityBot overlay starting...');
+
 ReactDOM.render(
   <BrowserRouter>
-    <Route exact={true} path="/" component={Main} />
+    <Route path="/" component={Main} />
   </BrowserRouter>,
   document.querySelector('#overlay')
 );

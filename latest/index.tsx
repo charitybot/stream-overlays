@@ -8,7 +8,7 @@ import Main from './Latest/Main';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Route exact={true} path="/" component={Main} />
+    <Route path="/" component={Main} />
   </BrowserRouter>,
   document.querySelector('#overlay')
 );
