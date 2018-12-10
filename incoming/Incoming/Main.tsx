@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { observer } from 'mobx-react';
+import { observer, Provider } from 'mobx-react';
 
 import Incoming from './Incoming';
+import RootStore from '../../common/stores/RootStore';
 
 interface IMainProps {}
 
@@ -21,6 +22,10 @@ export default class Main extends React.Component<IMainProps> {
   }
 
   public render() {
-    return <Incoming eventIdentifier={this.eventIdentifier} debug={this.debugMode} />;
+    return (
+      <Provider rootStore={new RootStore(this.debugMode)}>
+        <Incoming eventIdentifier={this.eventIdentifier} debug={this.debugMode} />
+      </Provider>
+    );
   }
 }
