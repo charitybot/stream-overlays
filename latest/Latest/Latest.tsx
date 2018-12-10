@@ -7,7 +7,7 @@ import Donation from '../../common/models/Donation';
 
 import DonationService from '../../common/services/DonationService';
 
-const REQUEST_DELAY: number = 5000;
+const REQUEST_DELAY: number = 2000;
 
 interface ILatestProps {
   eventIdentifier: string;
@@ -35,16 +35,16 @@ export default class Latest extends React.Component<ILatestProps> {
   }
 
   public render() {
-    if (!this.latestDonation) {
-      return <span>Waiting for the first donation!</span>;
-    }
-
     return (
       <span id="latest-donation">
-        {this.latestDonation.amount} from {this.latestDonation.donor ? this.latestDonation.donor : 'Anonymous'},{' '}
-        {this.formatDuration(this.latestDonation.timestamp)} ago
+        {this.latestDonation ? this.getDonationMessage() : 'Waiting for the first donation!'}
       </span>
     );
+  }
+
+  private getDonationMessage(): string {
+    return `${this.latestDonation.amount} from ${this.latestDonation.donor ? this.latestDonation.donor : 'Anonymous'}, 
+    ${this.formatDuration(this.latestDonation.timestamp)} ago`;
   }
 
   private formatDuration(donationDate: Date): string {
