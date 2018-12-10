@@ -16,12 +16,14 @@
   "dependencies": {
     "mobx": "^5.6.0",
     "mobx-react": "^5.4.2",
+    "moment": "^2.22.2",
     "react": "^16.6.3",
     "react-countup": "^4.0.0",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1"
   },
   "scripts": {
+    "start-latest": "$env:NODE_ENV='development'; node fuse.latest.js",
     "start-total": "$env:NODE_ENV='development'; node fuse.total.js",
     "build-total": "$env:NODE_ENV='production'; node fuse.total.js"
   }

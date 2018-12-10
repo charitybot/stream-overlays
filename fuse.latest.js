@@ -36,6 +36,6 @@ if (!isProduction) {
   app.hmr({ reload: true }).watch();
 }
 
-app.instructions(' > ./total/index.tsx');
+app.instructions(' > ./latest/index.tsx');
 
 fuse.run();
